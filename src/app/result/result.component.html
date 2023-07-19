@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    
+    <div class="columns is-centered">
+        <div class="column is-half my-5 has-text-centered">
+            <div class="title is-2">
+                <h2>Your result history</h2>
+            </div>
+            <table class="table is-fullwidth is-hoverable is-striped is-bordered ">
+                <thead>
+                    <tr >
+                        <th class="has-text-centered">Sr.no</th>
+                        <th class="has-text-centered">Topic</th>
+                        <th class="has-text-centered">Your Score</th>
+                        <th class="has-text-centered">Total Question</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let re of result; let i=index">
+                    <tr>
+                        <td>{{i+1}}</td>
+                        <td>{{re['topic__name']}}</td>
+                        <td>{{re['score']}}</td>
+                        <td>{{re['total_question']}}</td>
+                    </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            
+          
+        </div>
+    </div>
+</div>

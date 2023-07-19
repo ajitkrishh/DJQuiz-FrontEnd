@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en" style="overflow-y: hidden;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJQuiz</title>
+</head>
+
+<body>
+    <app-navbar></app-navbar>
+   
+    <div class="container">
+     
+    </div>
+    
+ 
+</body>
+
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column is-half my-5 has-text-centered">
+            <div class="title is-2">
+                <h2>Choose a topic for your test.</h2>
+            </div>    
+                <div class="select is-info">
+                    <select name="topic" id="topic_id" #topic>
+                        <option value="-1"> select topic</option>
+                        <ng-container *ngFor="let topic of topics">
+                            <option  value="{{topic.id}}">{{topic.name}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <button type="button" class="button is-primary" (click)="sendTopic(topic.value)">
+                    Submit
+                </button> 
+        </div>
+    </div>
+</div>
+    
+</html>

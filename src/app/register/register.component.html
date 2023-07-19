@@ -1,0 +1,55 @@
+<div class="container m-3 p-3">
+    <div class="card ">
+        <div class="card-content">
+            <p class="title is-4">DJQuiz</p>
+            <p class="subtitle is-6">Register here</p>
+
+             <form [formGroup]="form" class="login-form py-5 w-100" (ngSubmit)="onSubmit()">
+
+                <div class="columns">
+                    <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)" 
+                    class="column notification is-danger ">
+                    UserName is required
+                </div>
+                </div>
+                <div class="columns">
+                    <div *ngIf="f.password1.invalid && (f.password1.dirty || f.password1.touched)" 
+                    class="column notification is-danger ">
+                        Password is required
+                    </div>
+                </div>
+                <div class="columns">
+                    <div *ngIf="f.password2.invalid && (f.password2.dirty || f.password2.touched)" 
+                    class="column notification is-danger ">
+                        Confirm Password is required
+                    </div>
+                </div>
+                <div class="columns">
+                    <div *ngIf="f.password1.valid && f.password2.valid &&( f.password1 !== f.password2)" 
+                    class="column notification is-danger ">
+                        Password do not match
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column is-one-quarter">Username</div>
+                    <div class="column is-three-quarter">
+                        <input class="input" id="login-username" type="text" formControlName="username" required>
+                    </div>
+                </div>
+                <div class="columns">
+                  
+                    <div class="column is-one-quarter">password</div>
+                    <div class="column is-three-quarter">
+                        <input class="input" id="login-password" type="password" formControlName="password" required>
+                    </div>
+                </div>
+                <input type="submit" value="Register" [disabled]="form.invalid" class="button is-primary">
+            </form>
+            <div class="container is-flex">
+                <p class="subtitle is-5 mx-4 pt-2">Already a member ? </p>
+                <a href="/login" class="button is-info">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container box mt-4">
+    <div class="columns">
+        <div class="column is-8">
+            <div class="title is-3">
+                Your question is:
+            </div>
+        </div>
+        <div class="column">
+            <div class="title is-5">
+                Time left :
+                <span id="time_l"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="subtitle">
+        <h2 id="d-question">{{question}}</h2>
+    </div>
+    <input type="hidden" name="question" id="question-id" value="">
+    <div class="container" id="show-option">
+        <ng-container *ngFor="let opt of options; let i=index">
+
+            <input type="checkbox" (change)="add($event)" name="option[]" value="{{opt[0]}}" id="option_{{i}}">
+            <label class="checkbox ml-2" for="option_{{i}}">{{opt[1]}}</label> <br>
+        </ng-container>
+
+    </div>
+    <button class="button is-primary my-1" type="button" (click)="nextquestion()">Submit</button>
+</div>
